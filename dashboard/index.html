@@ -669,6 +669,46 @@
       }
     }
 
+    // ── Auto-start simulation after 4 seconds if user hasn't clicked ─────────
+    let autoSimStarted = false;
+    let userInteracted = false;
+    document.getElementById('sim-btn').addEventListener('click', () => {
+      userInteracted = true;
+    });
+
+    setTimeout(() => {
+      if (!userInteracted && !simInterval) {
+        autoSimStarted = true;
+        startSimulation();
+        // Show a small disclaimer that auto-sim started
+        const note = document.createElement('div');
+        note.id = 'auto-sim-note';
+        note.style.cssText = `
+          position: fixed; bottom: 16px; right: 16px;
+          background: #1a1030; border: 1px solid #a855f7;
+          color: #e2d9f3; padding: 10px 16px; border-radius: 8px;
+          font-size: 0.75rem; max-width: 260px; z-index: 999;
+          box-shadow: 0 4px 12px rgba(107,33,168,0.4);
+        `;
+        note.innerHTML = `
+          <div style="color:#a855f7;font-weight:700;margin-bottom:4px;">
+            ⚡ Auto-simulation running
+          </div>
+          <div style="color:#9b8ec4;line-height:1.4;">
+            Events are being generated automatically to demonstrate the live pipeline.
+            Click <b style="color:#e2d9f3;">⏹ Stop Simulation</b> to pause.
+          </div>
+          <div style="margin-top:8px;text-align:right;">
+            <span onclick="document.getElementById('auto-sim-note').remove()"
+              style="cursor:pointer;color:#6b21a8;font-size:0.7rem;">dismiss ✕</span>
+          </div>
+        `;
+        document.body.appendChild(note);
+        // Auto-dismiss the note after 8 seconds
+        setTimeout(() => note.remove(), 8000);
+      }
+    }, 4000);
+
     // ── Auto-refresh every 5 seconds ──────────────────────────────────────────
     refresh();
     setInterval(refresh, 5000);
