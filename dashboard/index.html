@@ -476,9 +476,7 @@
   </main>
 
   <script>
-    const API = window.location.hostname === 'localhost'
-      ? 'http://localhost:8000'
-      : `${window.location.protocol}//${window.location.hostname}:8000`;
+    const API = `${window.location.protocol}//${window.location.hostname}:${window.location.port || 8000}`;
 
     // Set today's date
     const today = new Date().toISOString().split('T')[0];
