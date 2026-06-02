@@ -20,6 +20,7 @@ from app.funnel import router as funnel_router
 from app.heatmap import router as heatmap_router
 from app.anomalies import router as anomalies_router
 from app.health import router as health_router
+from app.seed import router as seed_router
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pathlib import Path
@@ -144,6 +145,7 @@ app.include_router(funnel_router,    prefix="/stores",  tags=["Funnel"])
 app.include_router(heatmap_router,   prefix="/stores",  tags=["Heatmap"])
 app.include_router(anomalies_router, prefix="/stores",  tags=["Anomalies"])
 app.include_router(health_router,                       tags=["Health"])
+app.include_router(seed_router,                         tags=["Demo"])
 
 
 @app.get("/", tags=["Root"])

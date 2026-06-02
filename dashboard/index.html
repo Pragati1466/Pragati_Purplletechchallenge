@@ -709,8 +709,13 @@
       }
     }, 4000);
 
-    // ── Auto-refresh every 5 seconds ──────────────────────────────────────────
-    refresh();
+    // ── Auto-seed on first load, then refresh ────────────────────────────────
+    (async () => {
+      try {
+        await fetch(`${API}/seed`);
+      } catch (e) { /* ignore */ }
+      refresh();
+    })();
     setInterval(refresh, 5000);
   </script>
 </body>

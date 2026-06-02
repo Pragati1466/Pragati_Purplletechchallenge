@@ -1,25 +1,11 @@
 #!/bin/bash
-# start.sh — used by Render to boot the API with seeded data
+# start.sh — Render startup script
 set -e
 
-echo "Starting Store Intelligence API..."
+export DATABASE_URL="${DATABASE_URL:-sqlite+aiosqlite:///./store_intelligence.db}"
+export REDIS_URL="${REDIS_URL:-}"
 
-# Start the API in background briefly to let init_db() run and create tables
-python -c "
-import asyncio, sys
-sys.path.insert(0, '.')
-from app.database import init_db, close_db
-async def setup():
-    await init_db()
-    await close_db()
-asyncio.run(setup())
-print('DB tables created and stores seeded.')
-"
+echo "==> DATABASE_URL: $DATABASE_URL"
+echo "==> Starting API (init_db will create tables and seed stores)..."
 
-# Seed real Brigade Road data
-echo "Seeding real Brigade Road data..."
-python data/init_real_data.py --db-url "${DATABASE_URL:-sqlite+aiosqlite:///./store_intelligence.db}" || echo "Seed skipped (already seeded)"
-
-# Start the API
-echo "Starting uvicorn..."
 exec python -m uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-8000}"
