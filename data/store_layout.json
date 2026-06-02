@@ -1,0 +1,164 @@
+{
+  "stores": {
+    "ST1008": {
+      "store_name": "Brigade_Bangalore",
+      "city": "Bangalore",
+      "address": "Brigade Road, Bangalore",
+      "open_hours": { "open": "10:00", "close": "22:00" },
+      "cameras": {
+        "CAM_ENTRY_01": {
+          "source_file": "CAM 1.mp4",
+          "type": "ENTRY",
+          "description": "Main entry/exit threshold — front door",
+          "zones": [
+            {
+              "zone_id": "ENTRY_EXIT",
+              "polygon": [[0,400],[1920,400],[1920,1080],[0,1080]]
+            }
+          ]
+        },
+        "CAM_FLOOR_01": {
+          "source_file": "CAM 2.mp4",
+          "type": "FLOOR",
+          "description": "Main floor — left side (Maybelline, Lakme, Faces, Mars+Nybae)",
+          "zones": [
+            {
+              "zone_id": "MAYBELLINE",
+              "polygon": [[0,0],[480,0],[480,540],[0,540]]
+            },
+            {
+              "zone_id": "LAKME",
+              "polygon": [[480,0],[960,0],[960,540],[480,540]]
+            },
+            {
+              "zone_id": "FACES_CANADA",
+              "polygon": [[960,0],[1440,0],[1440,540],[960,540]]
+            },
+            {
+              "zone_id": "MARS_NYBAE",
+              "polygon": [[1440,0],[1920,0],[1920,540],[1440,540]]
+            },
+            {
+              "zone_id": "ALPS_GOODNESS",
+              "polygon": [[0,540],[480,540],[480,1080],[0,1080]]
+            },
+            {
+              "zone_id": "LOREAL",
+              "polygon": [[480,540],[960,540],[960,1080],[480,1080]]
+            },
+            {
+              "zone_id": "BEAUTY_ESSENTIALS",
+              "polygon": [[960,540],[1440,540],[1440,1080],[960,1080]]
+            },
+            {
+              "zone_id": "ACCESSORIES",
+              "polygon": [[1440,540],[1920,540],[1920,1080],[1440,1080]]
+            }
+          ]
+        },
+        "CAM_FLOOR_02": {
+          "source_file": "CAM 3.mp4",
+          "type": "FLOOR",
+          "description": "Main floor — right side (JC, Aqualogica, TFS, GV, DermDoc, Foxtale, Minimalist)",
+          "zones": [
+            {
+              "zone_id": "JUICY_CHEMISTRY",
+              "polygon": [[0,0],[480,0],[480,540],[0,540]]
+            },
+            {
+              "zone_id": "AQUALOGICA",
+              "polygon": [[480,0],[960,0],[960,540],[480,540]]
+            },
+            {
+              "zone_id": "TFS",
+              "polygon": [[960,0],[1440,0],[1440,540],[960,540]]
+            },
+            {
+              "zone_id": "GOOD_VIBES",
+              "polygon": [[1440,0],[1920,0],[1920,540],[1440,540]]
+            },
+            {
+              "zone_id": "DERMDOC",
+              "polygon": [[0,540],[480,540],[480,1080],[0,1080]]
+            },
+            {
+              "zone_id": "FOXTALE",
+              "polygon": [[480,540],[960,540],[960,1080],[480,1080]]
+            },
+            {
+              "zone_id": "MINIMALIST",
+              "polygon": [[960,540],[1440,540],[1440,1080],[960,1080]]
+            },
+            {
+              "zone_id": "MENS_CARE",
+              "polygon": [[1440,540],[1920,540],[1920,1080],[1440,1080]]
+            }
+          ]
+        },
+        "CAM_BILLING_01": {
+          "source_file": "CAM 4.mp4",
+          "type": "BILLING",
+          "description": "Billing counter area",
+          "zones": [
+            {
+              "zone_id": "BILLING",
+              "polygon": [[0,0],[1920,0],[1920,1080],[0,1080]]
+            }
+          ]
+        },
+        "CAM_FLOOR_03": {
+          "source_file": "CAM 5.mp4",
+          "type": "FLOOR",
+          "description": "Additional floor coverage — Swiss Beauty, Renee, Pilgrim, Salm/EB area",
+          "zones": [
+            {
+              "zone_id": "SWISS_BEAUTY",
+              "polygon": [[0,0],[640,0],[640,540],[0,540]]
+            },
+            {
+              "zone_id": "RENEE",
+              "polygon": [[640,0],[1280,0],[1280,540],[640,540]]
+            },
+            {
+              "zone_id": "PILGRIM",
+              "polygon": [[1280,0],[1920,0],[1920,540],[1280,540]]
+            },
+            {
+              "zone_id": "SALM_EB",
+              "polygon": [[0,540],[960,540],[960,1080],[0,1080]]
+            },
+            {
+              "zone_id": "COSRX_KOREAN",
+              "polygon": [[960,540],[1920,540],[1920,1080],[960,1080]]
+            }
+          ]
+        }
+      },
+      "zone_to_department": {
+        "MAYBELLINE": "makeup",
+        "LAKME": "makeup",
+        "FACES_CANADA": "makeup",
+        "MARS_NYBAE": "makeup",
+        "ALPS_GOODNESS": "hair",
+        "LOREAL": "makeup",
+        "BEAUTY_ESSENTIALS": "makeup",
+        "ACCESSORIES": "personal-care",
+        "JUICY_CHEMISTRY": "skin",
+        "AQUALOGICA": "skin",
+        "TFS": "skin",
+        "GOOD_VIBES": "skin",
+        "DERMDOC": "skin",
+        "FOXTALE": "skin",
+        "MINIMALIST": "skin",
+        "MENS_CARE": "personal-care",
+        "SWISS_BEAUTY": "makeup",
+        "RENEE": "makeup",
+        "PILGRIM": "skin",
+        "SALM_EB": "skin",
+        "COSRX_KOREAN": "skin",
+        "BILLING": "billing",
+        "ENTRY_EXIT": null
+      }
+    }
+  }
+}

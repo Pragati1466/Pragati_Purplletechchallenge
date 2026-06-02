@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store Intelligence — Purplle Live Dashboard</title>
+  <style>
+    :root {
+      --purple: #6B21A8;
+      --purple-light: #A855F7;
+      --bg: #0F0A1A;
+      --card: #1A1030;
+      --border: #2D1F4A;
+      --text: #E2D9F3;
+      --muted: #9B8EC4;
+      --green: #22C55E;
+      --yellow: #EAB308;
+      --red: #EF4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--purple), #1E0A3C);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    header .subtitle {
+      font-size: 0.8rem;
+      color: var(--purple-light);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--green);
+    }
+
+    main {
+      padding: 20px 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    select,
+    input {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    button {
+      background: var(--purple);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: var(--purple-light);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 900px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--purple-light);
+      line-height: 1;
+    }
+
+    .metric-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: var(--purple-light);
+    }
+
+    /* Funnel */
+    .funnel {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .funnel-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .funnel-label {
+      width: 120px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .funnel-bar-wrap {
+      flex: 1;
+      background: var(--border);
+      border-radius: 4px;
+      height: 28px;
+    }
+
+    .funnel-bar {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-light));
+      transition: width 0.6s ease;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      min-width: 40px;
+    }
+
+    .funnel-drop {
+      width: 60px;
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--red);
+    }
+
+    /* Heatmap */
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 8px;
+    }
+
+    .heatmap-cell {
+      border-radius: 8px;
+      padding: 12px 8px;
+      text-align: center;
+      transition: background 0.5s ease;
+    }
+
+    .heatmap-cell .zone-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .heatmap-cell .zone-score {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .heatmap-cell .zone-dwell {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Anomalies */
+    .anomaly-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .anomaly-item {
+      border-radius: 8px;
+      padding: 12px 16px;
+      border-left: 4px solid;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .anomaly-item.INFO {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: #3B82F6;
+    }
+
+    .anomaly-item.WARN {
+      background: rgba(234, 179, 8, 0.1);
+      border-color: var(--yellow);
+    }
+
+    .anomaly-item.CRITICAL {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: var(--red);
+    }
+
+    .anomaly-type {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .anomaly-action {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      text-transform: uppercase;
+    }
+
+    .badge.INFO {
+      background: #3B82F6;
+      color: white;
+    }
+
+    .badge.WARN {
+      background: var(--yellow);
+      color: black;
+    }
+
+    .badge.CRITICAL {
+      background: var(--red);
+      color: white;
+    }
+
+    /* Event log */
+    .event-log {
+      height: 220px;
+      overflow-y: auto;
+      font-size: 0.75rem;
+      font-family: monospace;
+      background: #0A0614;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .event-log .log-line {
+      padding: 2px 0;
+      border-bottom: 1px solid #1A1030;
+    }
+
+    .event-log .log-line:last-child {
+      border: none;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .tag.ENTRY {
+      background: #22C55E;
+      color: black;
+    }
+
+    .tag.EXIT {
+      background: #6B7280;
+      color: white;
+    }
+
+    .tag.ZONE_DWELL {
+      background: #8B5CF6;
+      color: white;
+    }
+
+    .tag.ZONE_ENTER {
+      background: #3B82F6;
+      color: white;
+    }
+
+    .tag.BILLING_QUEUE_JOIN {
+      background: #F59E0B;
+      color: black;
+    }
+
+    .tag.REENTRY {
+      background: #EC4899;
+      color: white;
+    }
+
+    .tag.default {
+      background: #374151;
+      color: white;
+    }
+
+    #last-updated {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <h1>🛍️ Store Intelligence — Live Dashboard</h1>
+      <div class="subtitle">Purplle Tech Challenge 2026 · Real-time CCTV Analytics</div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <span id="last-updated">Connecting…</span>
+      <div class="live-badge"><span class="status-dot"></span> LIVE</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="controls">
+      <label style="font-size:0.85rem;color:var(--muted)">Store:</label>
+      <select id="store-select">
+        <option value="ST1008">ST1008 — Brigade Road, Bangalore</option>
+        <option value="STORE_BLR_002">STORE_BLR_002 — Bangalore Koramangala (test)</option>
+      </select>
+      <label style="font-size:0.85rem;color:var(--muted)">Date:</label>
+      <input type="date" id="date-input" />
+      <button onclick="refresh()">Refresh</button>
+      <button onclick="startSimulation()" id="sim-btn">▶ Simulate Events</button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-4">
+      <div class="card">
+        <h3>Unique Visitors</h3>
+        <div class="metric-value" id="kpi-visitors">—</div>
+        <div class="metric-sub">Today (excl. staff)</div>
+      </div>
+      <div class="card">
+        <h3>Conversion Rate</h3>
+        <div class="metric-value" id="kpi-conversion">—</div>
+        <div class="metric-sub">Visitors who purchased</div>
+      </div>
+      <div class="card">
+        <h3>Queue Depth</h3>
+        <div class="metric-value" id="kpi-queue">—</div>
+        <div class="metric-sub">Current billing queue</div>
+      </div>
+      <div class="card">
+        <h3>Abandonment Rate</h3>
+        <div class="metric-value" id="kpi-abandon">—</div>
+        <div class="metric-sub">Left queue without purchase</div>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:16px;">
+      <!-- Conversion Funnel -->
+      <div class="card">
+        <h3>Conversion Funnel</h3>
+        <div class="funnel" id="funnel-container">
+          <div style="color:var(--muted);font-size:0.8rem;">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Zone Heatmap -->
+      <div class="card">
+        <h3>Zone Heatmap</h3>
+        <div id="confidence-badge" style="margin-bottom:8px;"></div>
+        <div class="heatmap-grid" id="heatmap-container">
+          <div style="color:var(--muted);font-size:0.8rem;">Loading…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anomalies + Event Log -->
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>Active Anomalies</h3>
+        <div class="anomaly-list" id="anomaly-container">
+          <div style="color:var(--muted);font-size:0.8rem;">No anomalies detected ✓</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Live Event Stream</h3>
+        <div class="event-log" id="event-log">
+          <div style="color:var(--muted);">Waiting for events…</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const API = window.location.hostname === 'localhost'
+      ? 'http://localhost:8000'
+      : `${window.location.protocol}//${window.location.hostname}:8000`;
+
+    // Set today's date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date-input').value = today;
+
+    let storeId = () => document.getElementById('store-select').value;
+    let dateStr = () => document.getElementById('date-input').value;
+
+    // ── Fetch helpers ──────────────────────────────────────────────────────────
+    async function fetchJSON(url) {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+      return r.json();
+    }
+
+    // ── Render functions ───────────────────────────────────────────────────────
+    function renderMetrics(data) {
+      document.getElementById('kpi-visitors').textContent = data.unique_visitors ?? '—';
+      document.getElementById('kpi-conversion').textContent =
+        data.conversion_rate != null ? (data.conversion_rate * 100).toFixed(1) + '%' : '—';
+      document.getElementById('kpi-queue').textContent = data.queue_depth_current ?? '—';
+      document.getElementById('kpi-abandon').textContent =
+        data.abandonment_rate != null ? (data.abandonment_rate * 100).toFixed(1) + '%' : '—';
+    }
+
+    function renderFunnel(data) {
+      const container = document.getElementById('funnel-container');
+      if (!data.stages || data.stages.length === 0) {
+        container.innerHTML = '<div style="color:var(--muted);font-size:0.8rem;">No data</div>';
+        return;
+      }
+      const maxCount = data.stages[0].count || 1;
+      container.innerHTML = data.stages.map(s => {
+        const pct = maxCount > 0 ? Math.max(4, (s.count / maxCount) * 100) : 4;
+        const drop = s.drop_off_pct > 0 ? `-${s.drop_off_pct.toFixed(1)}%` : '';
+        return `
+        <div class="funnel-row">
+          <div class="funnel-label">${s.stage.replace('_', ' ')}</div>
+          <div class="funnel-bar-wrap">
+            <div class="funnel-bar" style="width:${pct}%">${s.count}</div>
+          </div>
+          <div class="funnel-drop">${drop}</div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderHeatmap(data) {
+      const container = document.getElementById('heatmap-container');
+      const badge = document.getElementById('confidence-badge');
+
+      badge.innerHTML = data.data_confidence
+        ? '<span style="color:var(--green);font-size:0.75rem;">✓ High confidence</span>'
+        : '<span style="color:var(--yellow);font-size:0.75rem;">⚠ Low data (&lt;20 sessions)</span>';
+
+      if (!data.zones || data.zones.length === 0) {
+        container.innerHTML = '<div style="color:var(--muted);font-size:0.8rem;">No zone data</div>';
+        return;
+      }
+      container.innerHTML = data.zones.map(z => {
+        const score = z.normalized_score;
+        const hue = Math.round(270 - score * 1.5); // purple → warm
+        const bg = `hsl(${hue}, 70%, ${20 + score * 0.3}%)`;
+        const dwell = z.avg_dwell_ms > 0 ? `${(z.avg_dwell_ms / 1000).toFixed(0)}s avg` : '';
+        return `
+        <div class="heatmap-cell" style="background:${bg}">
+          <div class="zone-name">${z.zone_id}</div>
+          <div class="zone-score">${score}</div>
+          <div class="zone-dwell">${dwell}</div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderAnomalies(data) {
+      const container = document.getElementById('anomaly-container');
+      if (!data.anomalies || data.anomalies.length === 0) {
+        container.innerHTML = '<div style="color:var(--green);font-size:0.8rem;">✓ No active anomalies</div>';
+        return;
+      }
+      container.innerHTML = data.anomalies.map(a => `
+      <div class="anomaly-item ${a.severity}">
+        <div>
+          <div class="anomaly-type">${a.type.replace(/_/g, ' ')}</div>
+          <div class="anomaly-action">${a.suggested_action}</div>
+        </div>
+        <span class="badge ${a.severity}">${a.severity}</span>
+      </div>`).join('');
+    }
+
+    function logEvent(event) {
+      const log = document.getElementById('event-log');
+      const tagClass = event.event_type || 'default';
+      const ts = new Date(event.timestamp).toLocaleTimeString();
+      const zone = event.zone_id ? ` → ${event.zone_id}` : '';
+      const line = document.createElement('div');
+      line.className = 'log-line';
+      line.innerHTML = `<span style="color:var(--muted)">${ts}</span> ` +
+        `<span class="tag ${tagClass}">${event.event_type}</span>` +
+        `<span style="color:var(--purple-light)">${event.visitor_id}</span>` +
+        `<span style="color:var(--muted)">${zone}</span>`;
+      log.insertBefore(line, log.firstChild);
+      // Keep last 50 lines
+      while (log.children.length > 50) log.removeChild(log.lastChild);
+    }
+
+    // ── Main refresh ───────────────────────────────────────────────────────────
+    async function refresh() {
+      const sid = storeId();
+      const d = dateStr();
+      try {
+        const [metrics, funnel, heatmap, anomalies] = await Promise.all([
+          fetchJSON(`${API}/stores/${sid}/metrics?date=${d}`),
+          fetchJSON(`${API}/stores/${sid}/funnel?date=${d}`),
+          fetchJSON(`${API}/stores/${sid}/heatmap?date=${d}`),
+          fetchJSON(`${API}/stores/${sid}/anomalies`),
+        ]);
+        renderMetrics(metrics);
+        renderFunnel(funnel);
+        renderHeatmap(heatmap);
+        renderAnomalies(anomalies);
+        document.getElementById('last-updated').textContent =
+          'Updated ' + new Date().toLocaleTimeString();
+      } catch (err) {
+        document.getElementById('last-updated').textContent = '⚠ ' + err.message;
+      }
+    }
+
+    // ── Simulation (Part E) ────────────────────────────────────────────────────
+    let simInterval = null;
+    const EVENT_TYPES = ['ENTRY', 'EXIT', 'ZONE_ENTER', 'ZONE_DWELL',
+      'BILLING_QUEUE_JOIN', 'REENTRY'];
+    // Real Brigade Road zones per store
+    const ZONES_BY_STORE = {
+      'ST1008': ['MAYBELLINE', 'LAKME', 'FACES_CANADA', 'MARS_NYBAE', 'ALPS_GOODNESS',
+        'LOREAL', 'BEAUTY_ESSENTIALS', 'GOOD_VIBES', 'DERMDOC', 'FOXTALE',
+        'MINIMALIST', 'COSRX_KOREAN', 'BILLING'],
+      'STORE_BLR_002': ['SKINCARE', 'MAKEUP', 'FRAGRANCE', 'BILLING'],
+    };
+    let simVisitorCount = 0;
+
+    function randomEvent() {
+      const type = EVENT_TYPES[Math.floor(Math.random() * EVENT_TYPES.length)];
+      const isZone = ['ZONE_ENTER', 'ZONE_DWELL', 'BILLING_QUEUE_JOIN'].includes(type);
+      const sid = storeId();
+      const zones = ZONES_BY_STORE[sid] || ZONES_BY_STORE['STORE_BLR_002'];
+      const zone = isZone ? zones[Math.floor(Math.random() * zones.length)] : null;
+      const cam = zone === 'BILLING' ? 'CAM_BILLING_01'
+        : isZone ? 'CAM_FLOOR_01' : 'CAM_ENTRY_01';
+      simVisitorCount++;
+      return {
+        event_id: crypto.randomUUID(),
+        store_id: sid,
+        camera_id: cam,
+        visitor_id: `VIS_sim${String(simVisitorCount).padStart(4, '0')}`,
+        event_type: type,
+        timestamp: new Date().toISOString(),
+        zone_id: zone,
+        dwell_ms: isZone ? Math.floor(Math.random() * 60000) : 0,
+        is_staff: Math.random() < 0.05,
+        confidence: 0.7 + Math.random() * 0.3,
+        metadata: {
+          session_seq: simVisitorCount,
+          queue_depth: type === 'BILLING_QUEUE_JOIN' ? Math.floor(Math.random() * 8) : null,
+        },
+      };
+    }
+
+    async function sendSimEvent() {
+      const event = randomEvent();
+      logEvent(event);
+      try {
+        await fetch(`${API}/events/ingest`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ events: [event] }),
+        });
+      } catch (e) { /* ignore */ }
+    }
+
+    function startSimulation() {
+      const btn = document.getElementById('sim-btn');
+      if (simInterval) {
+        clearInterval(simInterval);
+        simInterval = null;
+        btn.textContent = '▶ Simulate Events';
+        btn.style.background = '';
+      } else {
+        simInterval = setInterval(sendSimEvent, 800);
+        btn.textContent = '⏹ Stop Simulation';
+        btn.style.background = '#DC2626';
+      }
+    }
+
+    // ── Auto-refresh every 5 seconds ──────────────────────────────────────────
+    refresh();
+    setInterval(refresh, 5000);
+  </script>
+</body>
+
+</html>

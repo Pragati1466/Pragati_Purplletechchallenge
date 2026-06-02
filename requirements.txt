@@ -1,0 +1,50 @@
+# ── API Framework ─────────────────────────────────────────────────────────────
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+
+# ── Database ──────────────────────────────────────────────────────────────────
+asyncpg==0.29.0
+sqlalchemy[asyncio]==2.0.25
+aiosqlite==0.19.0          # SQLite async driver (used in tests)
+
+# ── Caching ───────────────────────────────────────────────────────────────────
+redis==5.0.1
+hiredis==2.3.2
+
+# ── Computer Vision & Detection ───────────────────────────────────────────────
+ultralytics==8.1.0
+opencv-python-headless==4.9.0.80
+numpy==1.26.3
+torch==2.1.2
+torchvision==0.16.2
+
+# ── Tracking & Re-ID ──────────────────────────────────────────────────────────
+filterpy==1.4.5
+scipy==1.11.4
+scikit-learn==1.4.0
+
+# ── HTTP Client (pipeline → API streaming) ────────────────────────────────────
+httpx==0.26.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv==1.0.0
+structlog==24.1.0
+
+# ── Data Processing ───────────────────────────────────────────────────────────
+pandas==2.1.4
+openpyxl==3.1.2            # Read Brigade Road store layout xlsx
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest==7.4.4
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+
+# ── Monitoring ────────────────────────────────────────────────────────────────
+prometheus-client==0.19.0
+
+# ── WebSocket (live dashboard) ────────────────────────────────────────────────
+websockets==12.0
