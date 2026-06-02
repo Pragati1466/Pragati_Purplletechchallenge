@@ -2,12 +2,14 @@ services:
   - type: web
     name: store-intelligence-api
     runtime: python
-    buildCommand: pip install fastapi uvicorn sqlalchemy aiosqlite pydantic==2.5.3 pydantic-settings structlog httpx redis aiosqlite
+    buildCommand: pip install fastapi "uvicorn[standard]" sqlalchemy aiosqlite "pydantic==2.5.3" pydantic-settings structlog httpx redis python-multipart
     startCommand: bash start.sh
     envVars:
       - key: DATABASE_URL
         value: sqlite+aiosqlite:///./store_intelligence.db
       - key: REDIS_URL
         value: ""
+      - key: PORT
+        value: "10000"
     healthCheckPath: /health
     autoDeploy: true

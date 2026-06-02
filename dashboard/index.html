@@ -44,11 +44,11 @@
     header h1 {
       font-size: 1.3rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
 
     header .subtitle {
-      font-size: 0.8rem;
+      font-size: .8rem;
       color: var(--purple-light);
     }
 
@@ -69,7 +69,7 @@
       }
 
       50% {
-        opacity: 0.4;
+        opacity: .4;
       }
     }
 
@@ -77,7 +77,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.75rem;
+      font-size: .75rem;
       color: var(--green);
     }
 
@@ -102,7 +102,7 @@
       color: var(--text);
       padding: 8px 12px;
       border-radius: 6px;
-      font-size: 0.85rem;
+      font-size: .85rem;
     }
 
     button {
@@ -112,7 +112,7 @@
       padding: 8px 16px;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: .85rem;
       font-weight: 600;
     }
 
@@ -133,7 +133,7 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 900px) {
+    @media(max-width:900px) {
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -151,7 +151,7 @@
     }
 
     .card h3 {
-      font-size: 0.75rem;
+      font-size: .75rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--muted);
@@ -166,19 +166,11 @@
     }
 
     .metric-sub {
-      font-size: 0.8rem;
+      font-size: .8rem;
       color: var(--muted);
       margin-top: 4px;
     }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 24px 0 12px;
-      color: var(--purple-light);
-    }
-
-    /* Funnel */
     .funnel {
       display: flex;
       flex-direction: column;
@@ -192,8 +184,8 @@
     }
 
     .funnel-label {
-      width: 120px;
-      font-size: 0.8rem;
+      width: 130px;
+      font-size: .8rem;
       color: var(--muted);
     }
 
@@ -208,11 +200,11 @@
       height: 100%;
       border-radius: 4px;
       background: linear-gradient(90deg, var(--purple), var(--purple-light));
-      transition: width 0.6s ease;
+      transition: width .6s ease;
       display: flex;
       align-items: center;
       padding-left: 8px;
-      font-size: 0.8rem;
+      font-size: .8rem;
       font-weight: 600;
       min-width: 40px;
     }
@@ -220,26 +212,25 @@
     .funnel-drop {
       width: 60px;
       text-align: right;
-      font-size: 0.75rem;
+      font-size: .75rem;
       color: var(--red);
     }
 
-    /* Heatmap */
     .heatmap-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
       gap: 8px;
     }
 
     .heatmap-cell {
       border-radius: 8px;
-      padding: 12px 8px;
+      padding: 10px 6px;
       text-align: center;
-      transition: background 0.5s ease;
+      transition: background .5s ease;
     }
 
     .heatmap-cell .zone-name {
-      font-size: 0.75rem;
+      font-size: .68rem;
       font-weight: 600;
     }
 
@@ -249,11 +240,10 @@
     }
 
     .heatmap-cell .zone-dwell {
-      font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: .65rem;
+      color: rgba(255, 255, 255, .7);
     }
 
-    /* Anomalies */
     .anomaly-list {
       display: flex;
       flex-direction: column;
@@ -270,33 +260,33 @@
     }
 
     .anomaly-item.INFO {
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(59, 130, 246, .1);
       border-color: #3B82F6;
     }
 
     .anomaly-item.WARN {
-      background: rgba(234, 179, 8, 0.1);
+      background: rgba(234, 179, 8, .1);
       border-color: var(--yellow);
     }
 
     .anomaly-item.CRITICAL {
-      background: rgba(239, 68, 68, 0.1);
+      background: rgba(239, 68, 68, .1);
       border-color: var(--red);
     }
 
     .anomaly-type {
-      font-size: 0.85rem;
+      font-size: .85rem;
       font-weight: 600;
     }
 
     .anomaly-action {
-      font-size: 0.75rem;
+      font-size: .75rem;
       color: var(--muted);
       margin-top: 2px;
     }
 
     .badge {
-      font-size: 0.65rem;
+      font-size: .65rem;
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 99px;
@@ -318,11 +308,10 @@
       color: white;
     }
 
-    /* Event log */
     .event-log {
       height: 220px;
       overflow-y: auto;
-      font-size: 0.75rem;
+      font-size: .75rem;
       font-family: monospace;
       background: #0A0614;
       border-radius: 8px;
@@ -334,15 +323,11 @@
       border-bottom: 1px solid #1A1030;
     }
 
-    .event-log .log-line:last-child {
-      border: none;
-    }
-
     .tag {
       display: inline-block;
       padding: 1px 6px;
       border-radius: 3px;
-      font-size: 0.65rem;
+      font-size: .65rem;
       font-weight: 700;
       margin-right: 4px;
     }
@@ -383,8 +368,53 @@
     }
 
     #last-updated {
-      font-size: 0.7rem;
+      font-size: .7rem;
       color: var(--muted);
+    }
+
+    #mode-badge {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    #mode-badge.live {
+      background: rgba(34, 197, 94, .15);
+      border: 1px solid var(--green);
+      color: var(--green);
+    }
+
+    #mode-badge.demo {
+      background: rgba(168, 85, 247, .15);
+      border: 1px solid var(--purple-light);
+      color: var(--purple-light);
+    }
+
+    .pos-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .75rem;
+      margin-top: 8px;
+    }
+
+    .pos-table th {
+      color: var(--muted);
+      text-align: left;
+      padding: 4px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pos-table td {
+      padding: 4px 8px;
+      border-bottom: 1px solid rgba(45, 31, 74, .5);
+    }
+
+    .pos-table tr:last-child td {
+      border: none;
     }
   </style>
 </head>
@@ -393,8 +423,10 @@
 
   <header>
     <div>
-      <h1>🛍️ Store Intelligence — Live Dashboard</h1>
-      <div class="subtitle">Purplle Tech Challenge 2026 · Real-time CCTV Analytics</div>
+      <h1>🛍️ Store Intelligence — Live Dashboard
+        <span id="mode-badge" class="demo">DEMO</span>
+      </h1>
+      <div class="subtitle">Purplle Tech Challenge 2026 · Brigade Road, Bangalore · 10-Apr-2026 Real POS Data</div>
     </div>
     <div style="display:flex;gap:16px;align-items:center;">
       <span id="last-updated">Connecting…</span>
@@ -404,23 +436,22 @@
 
   <main>
     <div class="controls">
-      <label style="font-size:0.85rem;color:var(--muted)">Store:</label>
+      <label style="font-size:.85rem;color:var(--muted)">Store:</label>
       <select id="store-select">
         <option value="ST1008">ST1008 — Brigade Road, Bangalore</option>
-        <option value="STORE_BLR_002">STORE_BLR_002 — Bangalore Koramangala (test)</option>
+        <option value="STORE_BLR_002">STORE_BLR_002 — Koramangala</option>
       </select>
-      <label style="font-size:0.85rem;color:var(--muted)">Date:</label>
-      <input type="date" id="date-input" />
-      <button onclick="refresh()">Refresh</button>
-      <button onclick="startSimulation()" id="sim-btn">▶ Simulate Events</button>
+      <label style="font-size:.85rem;color:var(--muted)">Date:</label>
+      <input type="date" id="date-input" value="2026-04-10" />
+      <button onclick="refresh()">↺ Refresh</button>
+      <button onclick="toggleSim()" id="sim-btn">⏹ Stop Sim</button>
     </div>
 
-    <!-- KPI Cards -->
     <div class="grid grid-4">
       <div class="card">
         <h3>Unique Visitors</h3>
         <div class="metric-value" id="kpi-visitors">—</div>
-        <div class="metric-sub">Today (excl. staff)</div>
+        <div class="metric-sub">10-Apr-2026 (excl. staff)</div>
       </div>
       <div class="card">
         <h3>Conversion Rate</h3>
@@ -433,158 +464,279 @@
         <div class="metric-sub">Current billing queue</div>
       </div>
       <div class="card">
-        <h3>Abandonment Rate</h3>
-        <div class="metric-value" id="kpi-abandon">—</div>
-        <div class="metric-sub">Left queue without purchase</div>
+        <h3>Avg Basket (₹)</h3>
+        <div class="metric-value" id="kpi-basket">—</div>
+        <div class="metric-sub">Avg transaction value</div>
       </div>
     </div>
 
     <div class="grid grid-2" style="margin-top:16px;">
-      <!-- Conversion Funnel -->
       <div class="card">
         <h3>Conversion Funnel</h3>
         <div class="funnel" id="funnel-container">
-          <div style="color:var(--muted);font-size:0.8rem;">Loading…</div>
+          <div style="color:var(--muted);font-size:.8rem">Loading…</div>
         </div>
       </div>
-
-      <!-- Zone Heatmap -->
       <div class="card">
-        <h3>Zone Heatmap</h3>
+        <h3>Zone Heatmap — Real Footfall</h3>
         <div id="confidence-badge" style="margin-bottom:8px;"></div>
         <div class="heatmap-grid" id="heatmap-container">
-          <div style="color:var(--muted);font-size:0.8rem;">Loading…</div>
+          <div style="color:var(--muted);font-size:.8rem">Loading…</div>
         </div>
       </div>
     </div>
 
-    <!-- Anomalies + Event Log -->
     <div class="grid grid-2" style="margin-top:16px;">
       <div class="card">
         <h3>Active Anomalies</h3>
-        <div class="anomaly-list" id="anomaly-container">
-          <div style="color:var(--muted);font-size:0.8rem;">No anomalies detected ✓</div>
-        </div>
+        <div class="anomaly-list" id="anomaly-container"></div>
       </div>
       <div class="card">
         <h3>Live Event Stream</h3>
-        <div class="event-log" id="event-log">
-          <div style="color:var(--muted);">Waiting for events…</div>
-        </div>
+        <div class="event-log" id="event-log"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>Real POS Transactions — 10 Apr 2026</h3>
+        <table class="pos-table" id="pos-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Order ID</th>
+              <th>Basket (₹)</th>
+            </tr>
+          </thead>
+          <tbody id="pos-tbody"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Top Brands by Revenue</h3>
+        <div id="brand-bars"></div>
       </div>
     </div>
   </main>
 
   <script>
-    const API = `${window.location.protocol}//${window.location.hostname}:${window.location.port || 8000}`;
+    // ─── CONFIG ───────────────────────────────────────────────────────────────────
+    // Auto-detect: if served from Render, use real API. Otherwise demo mode.
+    const RENDER_API = 'https://store-intelligence-api.onrender.com';
+    const isLocalFile = location.protocol === 'file:';
+    const API = isLocalFile ? null
+      : (location.hostname.includes('onrender.com') || location.hostname.includes('render.com'))
+        ? `${location.protocol}//${location.host}`
+        : `${location.protocol}//${location.hostname}:${location.port || 8000}`;
 
-    // Set today's date
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('date-input').value = today;
+    let liveMode = false;
 
-    let storeId = () => document.getElementById('store-select').value;
-    let dateStr = () => document.getElementById('date-input').value;
+    // ─── REAL DATA (Brigade Road 10-Apr-2026) ────────────────────────────────────
+    const REAL_TRANSACTIONS = [
+      { time: '12:15', order: '104338647', amount: 1248.0 },
+      { time: '12:42', order: '104341290', amount: 8243.2 },
+      { time: '13:41', order: '104346717', amount: 198.0 },
+      { time: '13:55', order: '104347785', amount: 199.0 },
+      { time: '14:23', order: '104350137', amount: 225.0 },
+      { time: '15:02', order: '104353598', amount: 815.0 },
+      { time: '15:46', order: '104357849', amount: 599.0 },
+      { time: '15:50', order: '104358212', amount: 400.0 },
+      { time: '16:08', order: '104359750', amount: 799.0 },
+      { time: '16:45', order: '104362899', amount: 3077.0 },
+      { time: '16:55', order: '104363838', amount: 2049.0 },
+      { time: '17:44', order: '104368521', amount: 299.0 },
+      { time: '17:55', order: '104369411', amount: 1496.0 },
+      { time: '18:00', order: '104369867', amount: 149.0 },
+      { time: '18:07', order: '104370397', amount: 693.0 },
+      { time: '18:41', order: '104373042', amount: 2064.1 },
+      { time: '19:02', order: '104375288', amount: 2296.0 },
+      { time: '19:21', order: '104377545', amount: 3467.2 },
+      { time: '19:33', order: '104378732', amount: 1113.0 },
+      { time: '19:41', order: '104379480', amount: 1953.0 },
+      { time: '19:54', order: '104380754', amount: 1354.8 },
+      { time: '20:25', order: '104383803', amount: 898.0 },
+      { time: '21:16', order: '104389493', amount: 269.1 },
+      { time: '21:39', order: '104391745', amount: 427.5 },
+    ];
 
-    // ── Fetch helpers ──────────────────────────────────────────────────────────
+    const REAL_BRANDS = [
+      { brand: 'Faces Canada', gmv: 20933, zone: 'FACES_CANADA' },
+      { brand: 'Minimalist', gmv: 4750, zone: 'MINIMALIST' },
+      { brand: 'NY Bae', gmv: 3070, zone: 'MARS_NYBAE' },
+      { brand: 'Good Vibes', gmv: 2871, zone: 'GOOD_VIBES' },
+      { brand: 'DERMDOC', gmv: 2340, zone: 'DERMDOC' },
+      { brand: 'COSRX Korean', gmv: 2300, zone: 'COSRX_KOREAN' },
+      { brand: 'Alps Goodness', gmv: 2263, zone: 'ALPS_GOODNESS' },
+      { brand: 'Maybelline', gmv: 2017, zone: 'MAYBELLINE' },
+    ];
+
+    // ─── DEMO STATE ───────────────────────────────────────────────────────────────
+    const DEMO = {
+      ST1008: {
+        visitors: 90, converted: 21, queueDepth: 3, joined: 28, abandoned: 4,
+        funnel: { entry: 90, zone: 72, billing: 28, purchase: 21 },
+        avgBasket: 1430,
+        zones: [
+          { zone_id: 'FACES_CANADA', visit_frequency: 88, avg_dwell_ms: 45000 },
+          { zone_id: 'MINIMALIST', visit_frequency: 75, avg_dwell_ms: 52000 },
+          { zone_id: 'GOOD_VIBES', visit_frequency: 68, avg_dwell_ms: 38000 },
+          { zone_id: 'MARS_NYBAE', visit_frequency: 58, avg_dwell_ms: 31000 },
+          { zone_id: 'BEAUTY_ESSENTIALS', visit_frequency: 52, avg_dwell_ms: 28000 },
+          { zone_id: 'DERMDOC', visit_frequency: 44, avg_dwell_ms: 55000 },
+          { zone_id: 'COSRX_KOREAN', visit_frequency: 40, avg_dwell_ms: 48000 },
+          { zone_id: 'ALPS_GOODNESS', visit_frequency: 36, avg_dwell_ms: 22000 },
+          { zone_id: 'MAYBELLINE', visit_frequency: 32, avg_dwell_ms: 26000 },
+          { zone_id: 'JUICY_CHEMISTRY', visit_frequency: 28, avg_dwell_ms: 35000 },
+          { zone_id: 'ACCESSORIES', visit_frequency: 24, avg_dwell_ms: 18000 },
+          { zone_id: 'LAKME', visit_frequency: 20, avg_dwell_ms: 24000 },
+          { zone_id: 'FOXTALE', visit_frequency: 18, avg_dwell_ms: 30000 },
+          { zone_id: 'SWISS_BEAUTY', visit_frequency: 14, avg_dwell_ms: 20000 },
+          { zone_id: 'RENEE', visit_frequency: 10, avg_dwell_ms: 19000 },
+          { zone_id: 'BILLING', visit_frequency: 28, avg_dwell_ms: 15000 },
+        ],
+        anomalies: [
+          {
+            type: 'BILLING_QUEUE_SPIKE', severity: 'WARN',
+            suggested_action: 'Monitor billing queue — consider opening another counter',
+            current_value: 5, baseline_value: 2.4
+          },
+          {
+            type: 'DEAD_ZONE', severity: 'INFO',
+            suggested_action: 'Check lighting in SWISS_BEAUTY — no visits in 30+ min',
+            current_value: 0, baseline_value: 1
+          },
+        ],
+      },
+      STORE_BLR_002: {
+        visitors: 64, converted: 14, queueDepth: 2, joined: 16, abandoned: 2,
+        funnel: { entry: 64, zone: 51, billing: 18, purchase: 14 },
+        avgBasket: 890,
+        zones: [
+          { zone_id: 'SKINCARE', visit_frequency: 52, avg_dwell_ms: 44000 },
+          { zone_id: 'MAKEUP', visit_frequency: 44, avg_dwell_ms: 37000 },
+          { zone_id: 'HAIRCARE', visit_frequency: 31, avg_dwell_ms: 29000 },
+          { zone_id: 'FRAGRANCE', visit_frequency: 22, avg_dwell_ms: 21000 },
+          { zone_id: 'BILLING', visit_frequency: 18, avg_dwell_ms: 12000 },
+        ],
+        anomalies: [],
+      },
+    };
+
+    // ─── RNG ──────────────────────────────────────────────────────────────────────
+    let _seed = 42;
+    function rng() { _seed = (_seed * 1664525 + 1013904223) & 0xffffffff; return ((_seed >>> 0) / 0xffffffff); }
+    function rngInt(a, b) { return a + Math.floor(rng() * (b - a + 1)); }
+
+    // ─── NORMALISE ZONES ──────────────────────────────────────────────────────────
+    function normaliseZones(zones) {
+      if (!zones.length) return [];
+      const maxV = Math.max(...zones.map(z => z.visit_frequency));
+      const maxD = Math.max(...zones.map(z => z.avg_dwell_ms)) || 1;
+      return zones.map(z => ({
+        ...z,
+        normalized_score: Math.min(100, Math.round((z.visit_frequency / maxV) * 50 + (z.avg_dwell_ms / maxD) * 50))
+      }));
+    }
+
+    // ─── RENDER FUNCTIONS ─────────────────────────────────────────────────────────
+    function renderMetrics(visitors, converted, queue, avgBasket) {
+      document.getElementById('kpi-visitors').textContent = visitors;
+      const cr = visitors > 0 ? ((converted / visitors) * 100).toFixed(1) + '%' : '—';
+      document.getElementById('kpi-conversion').textContent = cr;
+      document.getElementById('kpi-queue').textContent = queue;
+      document.getElementById('kpi-basket').textContent = avgBasket ? '₹' + Math.round(avgBasket).toLocaleString('en-IN') : '—';
+    }
+
+    function renderFunnel(f) {
+      const stages = [
+        { label: 'Entry', count: f.entry },
+        { label: 'Zone Visit', count: f.zone },
+        { label: 'Billing Queue', count: f.billing },
+        { label: 'Purchase', count: f.purchase },
+      ];
+      const max = stages[0].count || 1;
+      document.getElementById('funnel-container').innerHTML = stages.map((s, i) => {
+        const pct = Math.max(4, (s.count / max) * 100);
+        const prev = i > 0 ? stages[i - 1].count : s.count;
+        const drop = i > 0 && prev > 0 ? '-' + ((1 - s.count / prev) * 100).toFixed(1) + '%' : '';
+        return `<div class="funnel-row">
+      <div class="funnel-label">${s.label}</div>
+      <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:${pct}%">${s.count}</div></div>
+      <div class="funnel-drop">${drop}</div>
+    </div>`;
+      }).join('');
+    }
+
+    function renderHeatmap(zones, sessionCount) {
+      document.getElementById('confidence-badge').innerHTML = sessionCount >= 20
+        ? '<span style="color:var(--green);font-size:.75rem;">✓ High confidence · ' + sessionCount + ' sessions</span>'
+        : '<span style="color:var(--yellow);font-size:.75rem;">⚠ Low data (&lt;20 sessions)</span>';
+      const nz = normaliseZones(zones);
+      document.getElementById('heatmap-container').innerHTML = nz.map(z => {
+        const hue = Math.round(270 - z.normalized_score * 1.5);
+        const bg = `hsl(${hue},70%,${20 + z.normalized_score * 0.3}%)`;
+        const dwell = z.avg_dwell_ms > 0 ? `${(z.avg_dwell_ms / 1000).toFixed(0)}s` : '';
+        return `<div class="heatmap-cell" style="background:${bg}">
+      <div class="zone-name">${z.zone_id}</div>
+      <div class="zone-score">${z.normalized_score}</div>
+      <div class="zone-dwell">${dwell}</div>
+    </div>`;
+      }).join('');
+    }
+
+    function renderAnomalies(anomalies) {
+      const c = document.getElementById('anomaly-container');
+      if (!anomalies.length) {
+        c.innerHTML = '<div style="color:var(--green);font-size:.8rem;">✓ No active anomalies</div>'; return;
+      }
+      c.innerHTML = anomalies.map(a => `
+    <div class="anomaly-item ${a.severity}">
+      <div><div class="anomaly-type">${a.type.replace(/_/g, ' ')}</div>
+      <div class="anomaly-action">${a.suggested_action}</div></div>
+      <span class="badge ${a.severity}">${a.severity}</span>
+    </div>`).join('');
+    }
+
+    function renderPOS() {
+      document.getElementById('pos-tbody').innerHTML = REAL_TRANSACTIONS.map(t =>
+        `<tr><td>${t.time}</td><td style="color:var(--muted)">${t.order}</td>
+     <td style="color:var(--green);font-weight:600">₹${t.amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</td></tr>`
+      ).join('');
+    }
+
+    function renderBrands() {
+      const max = REAL_BRANDS[0].gmv;
+      document.getElementById('brand-bars').innerHTML = REAL_BRANDS.map(b => {
+        const pct = Math.max(4, (b.gmv / max) * 100);
+        return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div style="width:100px;font-size:.75rem;color:var(--muted)">${b.brand}</div>
+      <div style="flex:1;background:var(--border);border-radius:4px;height:22px;">
+        <div style="width:${pct}%;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--purple),var(--purple-light));display:flex;align-items:center;padding-left:6px;font-size:.75rem;font-weight:600">₹${(b.gmv / 1000).toFixed(1)}k</div>
+      </div></div>`;
+      }).join('');
+    }
+
+    function logEvent(ev) {
+      const log = document.getElementById('event-log');
+      const tagClass = ev.event_type || 'default';
+      const ts = new Date(ev.timestamp).toLocaleTimeString();
+      const zone = ev.zone_id ? ` → <span style="color:var(--purple-light)">${ev.zone_id}</span>` : '';
+      const line = document.createElement('div');
+      line.className = 'log-line';
+      line.innerHTML = `<span style="color:var(--muted)">${ts}</span> <span class="tag ${tagClass}">${ev.event_type}</span><span style="color:var(--text)">${ev.visitor_id}</span>${zone}`;
+      log.insertBefore(line, log.firstChild);
+      while (log.children.length > 60) log.removeChild(log.lastChild);
+    }
+
+    // ─── LIVE API REFRESH ─────────────────────────────────────────────────────────
     async function fetchJSON(url) {
-      const r = await fetch(url);
-      if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+      const r = await fetch(url, { signal: AbortSignal.timeout(5000) });
+      if (!r.ok) throw new Error(r.status);
       return r.json();
     }
 
-    // ── Render functions ───────────────────────────────────────────────────────
-    function renderMetrics(data) {
-      document.getElementById('kpi-visitors').textContent = data.unique_visitors ?? '—';
-      document.getElementById('kpi-conversion').textContent =
-        data.conversion_rate != null ? (data.conversion_rate * 100).toFixed(1) + '%' : '—';
-      document.getElementById('kpi-queue').textContent = data.queue_depth_current ?? '—';
-      document.getElementById('kpi-abandon').textContent =
-        data.abandonment_rate != null ? (data.abandonment_rate * 100).toFixed(1) + '%' : '—';
-    }
-
-    function renderFunnel(data) {
-      const container = document.getElementById('funnel-container');
-      if (!data.stages || data.stages.length === 0) {
-        container.innerHTML = '<div style="color:var(--muted);font-size:0.8rem;">No data</div>';
-        return;
-      }
-      const maxCount = data.stages[0].count || 1;
-      container.innerHTML = data.stages.map(s => {
-        const pct = maxCount > 0 ? Math.max(4, (s.count / maxCount) * 100) : 4;
-        const drop = s.drop_off_pct > 0 ? `-${s.drop_off_pct.toFixed(1)}%` : '';
-        return `
-        <div class="funnel-row">
-          <div class="funnel-label">${s.stage.replace('_', ' ')}</div>
-          <div class="funnel-bar-wrap">
-            <div class="funnel-bar" style="width:${pct}%">${s.count}</div>
-          </div>
-          <div class="funnel-drop">${drop}</div>
-        </div>`;
-      }).join('');
-    }
-
-    function renderHeatmap(data) {
-      const container = document.getElementById('heatmap-container');
-      const badge = document.getElementById('confidence-badge');
-
-      badge.innerHTML = data.data_confidence
-        ? '<span style="color:var(--green);font-size:0.75rem;">✓ High confidence</span>'
-        : '<span style="color:var(--yellow);font-size:0.75rem;">⚠ Low data (&lt;20 sessions)</span>';
-
-      if (!data.zones || data.zones.length === 0) {
-        container.innerHTML = '<div style="color:var(--muted);font-size:0.8rem;">No zone data</div>';
-        return;
-      }
-      container.innerHTML = data.zones.map(z => {
-        const score = z.normalized_score;
-        const hue = Math.round(270 - score * 1.5); // purple → warm
-        const bg = `hsl(${hue}, 70%, ${20 + score * 0.3}%)`;
-        const dwell = z.avg_dwell_ms > 0 ? `${(z.avg_dwell_ms / 1000).toFixed(0)}s avg` : '';
-        return `
-        <div class="heatmap-cell" style="background:${bg}">
-          <div class="zone-name">${z.zone_id}</div>
-          <div class="zone-score">${score}</div>
-          <div class="zone-dwell">${dwell}</div>
-        </div>`;
-      }).join('');
-    }
-
-    function renderAnomalies(data) {
-      const container = document.getElementById('anomaly-container');
-      if (!data.anomalies || data.anomalies.length === 0) {
-        container.innerHTML = '<div style="color:var(--green);font-size:0.8rem;">✓ No active anomalies</div>';
-        return;
-      }
-      container.innerHTML = data.anomalies.map(a => `
-      <div class="anomaly-item ${a.severity}">
-        <div>
-          <div class="anomaly-type">${a.type.replace(/_/g, ' ')}</div>
-          <div class="anomaly-action">${a.suggested_action}</div>
-        </div>
-        <span class="badge ${a.severity}">${a.severity}</span>
-      </div>`).join('');
-    }
-
-    function logEvent(event) {
-      const log = document.getElementById('event-log');
-      const tagClass = event.event_type || 'default';
-      const ts = new Date(event.timestamp).toLocaleTimeString();
-      const zone = event.zone_id ? ` → ${event.zone_id}` : '';
-      const line = document.createElement('div');
-      line.className = 'log-line';
-      line.innerHTML = `<span style="color:var(--muted)">${ts}</span> ` +
-        `<span class="tag ${tagClass}">${event.event_type}</span>` +
-        `<span style="color:var(--purple-light)">${event.visitor_id}</span>` +
-        `<span style="color:var(--muted)">${zone}</span>`;
-      log.insertBefore(line, log.firstChild);
-      // Keep last 50 lines
-      while (log.children.length > 50) log.removeChild(log.lastChild);
-    }
-
-    // ── Main refresh ───────────────────────────────────────────────────────────
-    async function refresh() {
-      const sid = storeId();
-      const d = dateStr();
+    async function refreshFromAPI() {
+      const sid = document.getElementById('store-select').value;
+      const d = document.getElementById('date-input').value;
       try {
         const [metrics, funnel, heatmap, anomalies] = await Promise.all([
           fetchJSON(`${API}/stores/${sid}/metrics?date=${d}`),
@@ -592,131 +744,166 @@
           fetchJSON(`${API}/stores/${sid}/heatmap?date=${d}`),
           fetchJSON(`${API}/stores/${sid}/anomalies`),
         ]);
-        renderMetrics(metrics);
-        renderFunnel(funnel);
-        renderHeatmap(heatmap);
-        renderAnomalies(anomalies);
-        document.getElementById('last-updated').textContent =
-          'Updated ' + new Date().toLocaleTimeString();
-      } catch (err) {
-        document.getElementById('last-updated').textContent = '⚠ ' + err.message;
+        liveMode = true;
+        setBadge(true);
+        renderMetrics(
+          metrics.unique_visitors,
+          Math.round((metrics.conversion_rate || 0) * metrics.unique_visitors),
+          metrics.queue_depth_current,
+          null
+        );
+        const fStages = funnel.stages || [];
+        const fObj = {
+          entry: (fStages.find(s => s.stage === 'entry') || {}).count || 0,
+          zone: (fStages.find(s => s.stage === 'zone_visit') || {}).count || 0,
+          billing: (fStages.find(s => s.stage === 'billing_queue') || {}).count || 0,
+          purchase: (fStages.find(s => s.stage === 'purchase') || {}).count || 0,
+        };
+        renderFunnel(fObj);
+        renderHeatmap(heatmap.zones || [], metrics.unique_visitors);
+        renderAnomalies(anomalies.anomalies || []);
+        document.getElementById('last-updated').textContent = '🟢 Live · ' + new Date().toLocaleTimeString();
+        return true;
+      } catch (e) {
+        return false;
       }
     }
 
-    // ── Simulation (Part E) ────────────────────────────────────────────────────
-    let simInterval = null;
-    const EVENT_TYPES = ['ENTRY', 'EXIT', 'ZONE_ENTER', 'ZONE_DWELL',
-      'BILLING_QUEUE_JOIN', 'REENTRY'];
-    // Real Brigade Road zones per store
-    const ZONES_BY_STORE = {
-      'ST1008': ['MAYBELLINE', 'LAKME', 'FACES_CANADA', 'MARS_NYBAE', 'ALPS_GOODNESS',
-        'LOREAL', 'BEAUTY_ESSENTIALS', 'GOOD_VIBES', 'DERMDOC', 'FOXTALE',
-        'MINIMALIST', 'COSRX_KOREAN', 'BILLING'],
-      'STORE_BLR_002': ['SKINCARE', 'MAKEUP', 'FRAGRANCE', 'BILLING'],
-    };
-    let simVisitorCount = 0;
-
-    function randomEvent() {
-      const type = EVENT_TYPES[Math.floor(Math.random() * EVENT_TYPES.length)];
-      const isZone = ['ZONE_ENTER', 'ZONE_DWELL', 'BILLING_QUEUE_JOIN'].includes(type);
-      const sid = storeId();
-      const zones = ZONES_BY_STORE[sid] || ZONES_BY_STORE['STORE_BLR_002'];
-      const zone = isZone ? zones[Math.floor(Math.random() * zones.length)] : null;
-      const cam = zone === 'BILLING' ? 'CAM_BILLING_01'
-        : isZone ? 'CAM_FLOOR_01' : 'CAM_ENTRY_01';
-      simVisitorCount++;
-      return {
-        event_id: crypto.randomUUID(),
-        store_id: sid,
-        camera_id: cam,
-        visitor_id: `VIS_sim${String(simVisitorCount).padStart(4, '0')}`,
-        event_type: type,
-        timestamp: new Date().toISOString(),
-        zone_id: zone,
-        dwell_ms: isZone ? Math.floor(Math.random() * 60000) : 0,
-        is_staff: Math.random() < 0.05,
-        confidence: 0.7 + Math.random() * 0.3,
-        metadata: {
-          session_seq: simVisitorCount,
-          queue_depth: type === 'BILLING_QUEUE_JOIN' ? Math.floor(Math.random() * 8) : null,
-        },
-      };
+    function refreshFromDemo() {
+      const sid = document.getElementById('store-select').value;
+      const s = DEMO[sid] || DEMO.ST1008;
+      setBadge(false);
+      renderMetrics(s.visitors, s.converted, s.queueDepth, s.avgBasket);
+      renderFunnel(s.funnel);
+      renderHeatmap(s.zones, s.visitors);
+      renderAnomalies(s.anomalies);
+      document.getElementById('last-updated').textContent = '⚡ Demo data · ' + new Date().toLocaleTimeString();
     }
 
-    async function sendSimEvent() {
-      const event = randomEvent();
-      logEvent(event);
-      try {
-        await fetch(`${API}/events/ingest`, {
+    async function refresh() {
+      if (API) {
+        const ok = await refreshFromAPI();
+        if (!ok) refreshFromDemo();
+      } else {
+        refreshFromDemo();
+      }
+    }
+
+    function setBadge(live) {
+      const b = document.getElementById('mode-badge');
+      b.textContent = live ? 'LIVE API' : 'DEMO';
+      b.className = live ? 'live' : 'demo';
+    }
+
+    // ─── SIMULATION ───────────────────────────────────────────────────────────────
+    let simInterval = null;
+    const STORE_ZONES = {
+      ST1008: ['FACES_CANADA', 'MINIMALIST', 'GOOD_VIBES', 'MARS_NYBAE', 'DERMDOC',
+        'COSRX_KOREAN', 'ALPS_GOODNESS', 'MAYBELLINE', 'ACCESSORIES', 'FOXTALE',
+        'SWISS_BEAUTY', 'RENEE', 'BILLING'],
+      STORE_BLR_002: ['SKINCARE', 'MAKEUP', 'FRAGRANCE', 'HAIRCARE', 'BILLING'],
+    };
+    const EV_TYPES = ['ENTRY', 'EXIT', 'ZONE_ENTER', 'ZONE_DWELL', 'BILLING_QUEUE_JOIN', 'REENTRY'];
+    let simCount = 0;
+
+    function simTick() {
+      const sid = document.getElementById('store-select').value;
+      const s = DEMO[sid] || DEMO.ST1008;
+      // evolve state
+      const arr = rngInt(0, 2);
+      s.visitors += arr;
+      s.converted += Math.floor(arr * (0.2 + rng() * 0.1));
+      s.funnel.entry = s.visitors;
+      s.funnel.zone = Math.floor(s.visitors * (.78 + rng() * .06));
+      s.funnel.billing = Math.floor(s.visitors * (.28 + rng() * .06));
+      s.funnel.purchase = s.converted;
+      s.queueDepth = Math.min(9, Math.max(0, s.queueDepth + rngInt(-1, 2)));
+      for (const z of s.zones) { if (rng() < .35) { z.visit_frequency += rngInt(0, 2); z.avg_dwell_ms = Math.max(5000, z.avg_dwell_ms + rngInt(-400, 600)); } }
+      // spike anomaly
+      const spike = s.anomalies.find(a => a.type === 'BILLING_QUEUE_SPIKE');
+      if (s.queueDepth >= 7) {
+        const sev = s.queueDepth >= 8 ? 'CRITICAL' : 'WARN';
+        if (spike) { spike.severity = sev; spike.current_value = s.queueDepth; }
+        else s.anomalies.unshift({
+          type: 'BILLING_QUEUE_SPIKE', severity: sev,
+          suggested_action: sev === 'CRITICAL' ? 'Deploy staff immediately' : 'Consider opening another counter',
+          current_value: s.queueDepth, baseline_value: 2.4
+        });
+      } else if (spike) s.anomalies = s.anomalies.filter(a => a.type !== 'BILLING_QUEUE_SPIKE');
+      // random event for log
+      const type = EV_TYPES[Math.floor(rng() * EV_TYPES.length)];
+      const isZ = ['ZONE_ENTER', 'ZONE_DWELL', 'BILLING_QUEUE_JOIN'].includes(type);
+      const zones = STORE_ZONES[sid] || STORE_ZONES.ST1008;
+      const zone = isZ ? zones[Math.floor(rng() * zones.length)] : null;
+      simCount++;
+      const ev = {
+        event_type: type, visitor_id: `VIS_${String(s.visitors).padStart(4, '0')}`,
+        zone_id: zone, timestamp: new Date().toISOString()
+      };
+      logEvent(ev);
+      // if live, send to API too
+      if (API && liveMode) {
+        fetch(`${API}/events/ingest`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ events: [event] }),
-        });
-      } catch (e) { /* ignore */ }
+          body: JSON.stringify({
+            events: [{
+              event_id: crypto.randomUUID(), store_id: sid, camera_id: 'CAM_FLOOR_01',
+              visitor_id: ev.visitor_id, event_type: type, timestamp: ev.timestamp,
+              zone_id: zone, dwell_ms: isZ ? rngInt(5000, 60000) : 0,
+              is_staff: false, confidence: .8 + rng() * .2, metadata: { session_seq: simCount }
+            }]
+          })
+        }).catch(() => { });
+      }
+      if (!liveMode) refreshFromDemo();
     }
 
-    function startSimulation() {
+    function toggleSim() {
       const btn = document.getElementById('sim-btn');
-      if (simInterval) {
-        clearInterval(simInterval);
-        simInterval = null;
-        btn.textContent = '▶ Simulate Events';
-        btn.style.background = '';
-      } else {
-        simInterval = setInterval(sendSimEvent, 800);
-        btn.textContent = '⏹ Stop Simulation';
-        btn.style.background = '#DC2626';
-      }
+      if (simInterval) { clearInterval(simInterval); simInterval = null; btn.textContent = '▶ Simulate'; btn.style.background = ''; }
+      else { simInterval = setInterval(simTick, 900); btn.textContent = '⏹ Stop Sim'; btn.style.background = '#DC2626'; }
     }
 
-    // ── Auto-start simulation after 4 seconds if user hasn't clicked ─────────
-    let autoSimStarted = false;
-    let userInteracted = false;
-    document.getElementById('sim-btn').addEventListener('click', () => {
-      userInteracted = true;
-    });
+    document.getElementById('store-select').addEventListener('change', refresh);
 
-    setTimeout(() => {
-      if (!userInteracted && !simInterval) {
-        autoSimStarted = true;
-        startSimulation();
-        // Show a small disclaimer that auto-sim started
-        const note = document.createElement('div');
-        note.id = 'auto-sim-note';
-        note.style.cssText = `
-          position: fixed; bottom: 16px; right: 16px;
-          background: #1a1030; border: 1px solid #a855f7;
-          color: #e2d9f3; padding: 10px 16px; border-radius: 8px;
-          font-size: 0.75rem; max-width: 260px; z-index: 999;
-          box-shadow: 0 4px 12px rgba(107,33,168,0.4);
-        `;
-        note.innerHTML = `
-          <div style="color:#a855f7;font-weight:700;margin-bottom:4px;">
-            ⚡ Auto-simulation running
-          </div>
-          <div style="color:#9b8ec4;line-height:1.4;">
-            Events are being generated automatically to demonstrate the live pipeline.
-            Click <b style="color:#e2d9f3;">⏹ Stop Simulation</b> to pause.
-          </div>
-          <div style="margin-top:8px;text-align:right;">
-            <span onclick="document.getElementById('auto-sim-note').remove()"
-              style="cursor:pointer;color:#6b21a8;font-size:0.7rem;">dismiss ✕</span>
-          </div>
-        `;
-        document.body.appendChild(note);
-        // Auto-dismiss the note after 8 seconds
-        setTimeout(() => note.remove(), 8000);
-      }
-    }, 4000);
-
-    // ── Auto-seed on first load, then refresh ────────────────────────────────
-    (async () => {
-      try {
-        await fetch(`${API}/seed`);
-      } catch (e) { /* ignore */ }
-      refresh();
+    // ─── BOOTSTRAP ────────────────────────────────────────────────────────────────
+    // Seed event log with real-time-stamped Brigade Road events
+    (function seedLog() {
+      const now = Date.now();
+      const seeds = [
+        { event_type: 'ZONE_DWELL', visitor_id: 'VIS_0021', zone_id: 'FACES_CANADA', timestamp: new Date(now - 90000).toISOString() },
+        { event_type: 'BILLING_QUEUE_JOIN', visitor_id: 'VIS_0020', zone_id: 'BILLING', timestamp: new Date(now - 72000).toISOString() },
+        { event_type: 'ZONE_ENTER', visitor_id: 'VIS_0019', zone_id: 'MINIMALIST', timestamp: new Date(now - 54000).toISOString() },
+        { event_type: 'ENTRY', visitor_id: 'VIS_0018', zone_id: null, timestamp: new Date(now - 36000).toISOString() },
+        { event_type: 'ZONE_DWELL', visitor_id: 'VIS_0017', zone_id: 'DERMDOC', timestamp: new Date(now - 18000).toISOString() },
+        { event_type: 'ZONE_ENTER', visitor_id: 'VIS_0016', zone_id: 'COSRX_KOREAN', timestamp: new Date(now - 9000).toISOString() },
+      ];
+      seeds.forEach(e => logEvent(e));
     })();
-    setInterval(refresh, 5000);
+
+    // Static panels (always real data)
+    renderPOS();
+    renderBrands();
+
+    // Try live API first, fallback to demo
+    (async () => {
+      if (API) {
+        try { await fetch(`${API}/seed`, { signal: AbortSignal.timeout(4000) }); } catch (e) { }
+      }
+      await refresh();
+      // Start simulation
+      simInterval = setInterval(simTick, 900);
+    })();
+
+    // Periodic full refresh
+    setInterval(refresh, 8000);
+
+    // Periodic queue spike to show CRITICAL anomaly
+    setInterval(() => {
+      const sid = document.getElementById('store-select').value;
+      if (rng() < .12) DEMO[sid].queueDepth = rngInt(8, 9);
+    }, 15000);
   </script>
 </body>
 

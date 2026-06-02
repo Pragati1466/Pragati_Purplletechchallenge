@@ -4,8 +4,10 @@ set -e
 
 export DATABASE_URL="${DATABASE_URL:-sqlite+aiosqlite:///./store_intelligence.db}"
 export REDIS_URL="${REDIS_URL:-}"
+export PORT="${PORT:-10000}"
 
 echo "==> DATABASE_URL: $DATABASE_URL"
-echo "==> Starting API (init_db will create tables and seed stores)..."
+echo "==> PORT: $PORT"
+echo "==> Starting Store Intelligence API..."
 
-exec python -m uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-8000}"
+exec python -m uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
